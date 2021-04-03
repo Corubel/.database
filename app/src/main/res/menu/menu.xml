@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/item_Favs"
-        android:icon="@drawable/ic_star_rate_24"
-        android:title="Favs"
-        android:visible="true"
-        app:showAsAction="always"
-        android:iconTint="@color/black"
-        />
+            <item
+                 android:id="@+id/mContacto"
+                 android:title="@string/menu_contacto"
+                 app:showAsAction="collapseActionView"
+                 />
+            <item android:id="@+id/mAcercaDe"
+                android:title="@string/menu_acerca_de"
+                app:showAsAction="collapseActionView"/>
+            <item
+            android:id="@+id/item_Favs"
+            android:icon="@drawable/ic_star_rate_24"
+            android:title="Favs"
+            android:visible="true"
+            app:showAsAction="ifRoom"
+            android:iconTint="@color/black"
+            />
 </menu>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/pink"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Envia Tu Comentario"
+        android:gravity="center"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:inputType="textEmailAddress"
+        >
+    </TextView>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your Gmail Address"
+        android:id="@+id/myEmail"
+        android:layout_marginTop="20dp"
+        android:inputType="textEmailAddress"
+        >
+    </EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your Gmail Password"
+        android:id="@+id/myPassword"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        >
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Receiver's Email Address"
+        android:id="@+id/receiverEmail"
+        android:layout_marginTop="10dp"
+        android:inputType="textEmailAddress"
+        >
+    </EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Titulo Email"
+        android:id="@+id/title"
+        android:layout_marginTop="30dp"
+        android:inputType="textEmailAddress"
+        >
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mesage"
+        android:id="@+id/message"
+        android:layout_marginTop="10dp"
+        android:inputType="textMultiLine"
+        >
+    </EditText>
+
+    <Button
+        android:backgroundTint="@color/bounty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar Comentario"
+        android:layout_gravity="right"
+        android:id="@+id/SendEmail"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        ></Button>
+
+</LinearLayout>

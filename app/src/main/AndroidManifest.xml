@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     package="com.example.petagramm3">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetagramM3">
+        <activity android:name=".BioDesarrollador"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,12 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Favoritos"
-            android:parentActivityName=".MainActivity">
-
-
-        </activity>
-
+        <activity
+            android:name=".Favoritos"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".JavaMail.Formulario"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

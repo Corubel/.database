@@ -4,13 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cvMascota"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:backgroundTint="@color/pink"
    >
-
-
-
-
 
     <LinearLayout
 
@@ -18,7 +14,6 @@
         android:layout_height="300dp"
         android:orientation="vertical"
         android:layout_marginHorizontal="30dp"
-
         >
 
         <ImageView
@@ -53,7 +48,7 @@
                 />
 
             <TextView
-                android:id="@+id/cvNumero"
+                android:id="@+id/cvLikes"
                 android:layout_width="25dp"
                 android:layout_height="wrap_content"
                 android:text="@string/raiting_perro"

@@ -1,94 +1,104 @@
 package com.example.petagramm3;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
+import com.example.petagramm3.Adaptador.MascotaAdaptador;
+import com.example.petagramm3.Adaptador.PageAdapter;
+import com.example.petagramm3.Fragment.PerfilFragment;
+import com.example.petagramm3.Fragment.RecyclerViewFragment;
+import com.example.petagramm3.JavaMail.Formulario;
+import com.example.petagramm3.Pogo.Mascota;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Mascota> mascotas;
-    public MascotaAdaptador adaptador;
-    private RecyclerView listaMascotas;
-    private Toolbar myActionBar;
+
+
+
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        myActionBar = findViewById(R.id.myActionBar);
-        setSupportActionBar(myActionBar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(false);
-            actionBar.setDisplayShowHomeEnabled(false);
-            actionBar.setDisplayShowTitleEnabled(true);
-            actionBar.setDisplayUseLogoEnabled(false);
-        }
-
         setContentView(R.layout.activity_main);
 
+        toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar);
+        tabLayout= (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        setUpViewPager();
 
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(RecyclerView.VERTICAL);
-        listaMascotas.setLayoutManager(llm);
-        inicializarListaMascotas();
-        inicializarAdaptador();
 
-        ImageButton favoritos = (ImageButton) findViewById(R.id.favorite);
-        favoritos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Favoritos.class);
-                startActivity(intent);
-            }
-        });
+        if (toolbar != null){
+            setSupportActionBar(toolbar);
+        }
+
+
 
     }
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
 
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new PerfilFragment());
+        return fragments;
+    }
 
+    private void setUpViewPager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.mipmap.ic_dogs);
+        tabLayout.getTabAt(1).setIcon(R.mipmap.ic_hotdog);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
+
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+
+
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+    public boolean onOptionsItemSelected( MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.item_Favs:
+
                 Intent intent = new Intent(this, Favoritos.class);
                 startActivity(intent);
-                break;
+
+                return true;
+            case R.id.mContacto:
+                Toast.makeText(this, "Contacto", Toast.LENGTH_SHORT).show();
+                Intent f = new Intent(this, Formulario.class);
+                startActivity(f);
+                return true;
+            case R.id.mAcercaDe:
+                Toast.makeText(this, "Acerca de", Toast.LENGTH_SHORT).show();
+                Intent b = new Intent(this, BioDesarrollador.class);
+                startActivity(b);
+                return true;
+
 
         }
         return super.onOptionsItemSelected(item);
     }
-    public void inicializarListaMascotas(){
-        mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota("Laika", R.mipmap.weimaraner, "7"));
-        mascotas.add(new Mascota("Pucho", R.mipmap.pitbull, "9"));
-        mascotas.add(new Mascota("Pochoclo", R.mipmap.doberman, "5"));
-        mascotas.add(new Mascota("Homero", R.mipmap.labrador, "9"));
-        mascotas.add(new Mascota("Pili", R.mipmap.dogoargentino, "8"));
-    }
-    public void inicializarAdaptador(){
-        adaptador = new MascotaAdaptador(mascotas, this);
-        listaMascotas.setAdapter(adaptador);
-    }
+
 }

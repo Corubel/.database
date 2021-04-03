@@ -3,4 +3,14 @@
     <string name="nombre_perro">nombre</string>
     <string name="raiting_perro">0</string>
     <string name="titulo_toolbar">Petagram</string>
+    <string name="menu_contacto">Contacto</string>
+    <string name="menu_acerca_de">Acerca de</string>
+    <string name="name_hint">Nombre</string>
+    <string name="mail_hint">Email</string>
+    <string name="message_hint">Mensaje</string>
+    <string name="btn_send">Enviar Comentario</string>
+    <string name="bio">Sorry i dont like myself, is a bad day for me...but i find chocolate :)</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
