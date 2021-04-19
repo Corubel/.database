@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.petagramm3.DetalleMascota;
 import com.example.petagramm3.Pogo.Mascota;
 import com.example.petagramm3.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -38,9 +39,12 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
     @Override
     public void onBindViewHolder(@NonNull MascotaViewHolder holder, int position) {
-        Mascota mascota = mascotas.get(position);
+        final Mascota mascota = mascotas.get(position);
         //MascotaViewHolder.imgFoto.setImageResource(mascota.getUrlFoto());
-
+        Picasso.get()
+                .load(mascota.getUrlFoto())
+                .placeholder(R.mipmap.ic_dogs)
+                .into(MascotaViewHolder.imgFoto);
 
         //MascotaViewHolder.cvNombre.setText(mascota.getNombre());
         MascotaViewHolder.cvLikes.setText(String.valueOf(mascota.getLike()) + " Likes ");

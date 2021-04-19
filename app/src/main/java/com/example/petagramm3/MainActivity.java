@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -27,9 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private Toolbar toolbar;
+    private androidx.appcompat.widget.Toolbar myActionBar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
 
 
     @Override
@@ -37,15 +39,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar);
+        myActionBar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar);
         tabLayout= (TabLayout) findViewById(R.id.tabLayout);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         setUpViewPager();
 
 
 
-        if (toolbar != null){
-            setSupportActionBar(toolbar);
+        if (myActionBar != null){
+            setSupportActionBar(myActionBar);
+            ActionBar actionBar = getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(true);
+                actionBar.setDisplayShowHomeEnabled(true);
+                actionBar.setDisplayShowTitleEnabled(false);
+                actionBar.setDisplayUseLogoEnabled(false);
+            }
         }
 
 
@@ -95,7 +104,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent b = new Intent(this, BioDesarrollador.class);
                 startActivity(b);
                 return true;
-
+            case  R.id.mConfigurarCuenta:
+                Toast.makeText(this, "Configurar Cuenta", Toast.LENGTH_SHORT).show();
+                Intent c = new Intent(this, ConfigurarCuenta.class);
+                startActivity(c);
+                return true;
 
         }
         return super.onOptionsItemSelected(item);

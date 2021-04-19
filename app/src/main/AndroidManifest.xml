@@ -12,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetagramM3">
-        <activity android:name=".BioDesarrollador"></activity>
+
+        <activity android:name=".BioDesarrollador"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +26,16 @@
         </activity>
         <activity
             android:name=".Favoritos"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" >
+        </activity>
         <activity
             android:name=".JavaMail.Formulario"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity android:name=".ConfigurarCuenta"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
     </application>
 
 </manifest>

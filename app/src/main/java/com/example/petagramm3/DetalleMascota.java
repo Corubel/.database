@@ -7,6 +7,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.petagramm3.Adaptador.MascotaAdaptador;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.PicassoProvider;
+
 public class DetalleMascota extends AppCompatActivity {
     private static final String KEY_EXTRA_URL = "url";
     private static final String KEY_EXTRA_LIKES = "like";
@@ -27,7 +31,12 @@ public class DetalleMascota extends AppCompatActivity {
 
         tvLikesDetalle.setText(String.valueOf(likes));
 
+        imgFotoDetalle = (ImageView) findViewById(R.id.imgFotoDetalle);
 
+        Picasso.get()
+                .load(url)
+                .placeholder(R.mipmap.ic_dogs)
+                .into(imgFotoDetalle);
 
 
     }

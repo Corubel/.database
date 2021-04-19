@@ -17,4 +17,10 @@
             app:showAsAction="ifRoom"
             android:iconTint="@color/black"
             />
+           <item
+               android:id="@+id/mConfigurarCuenta"
+               android:title="Configurar Cuenta"
+               app:showAsAction="collapseActionView"/>
+
+           
 </menu>
