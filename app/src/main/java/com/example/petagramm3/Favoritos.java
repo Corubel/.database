@@ -51,6 +51,7 @@ public class Favoritos extends AppCompatActivity {
         adaptador = new MascotaAdaptador(mascotas,this);
         listaMascotas.setAdapter(adaptador);
     }
+
      /*public void inicializarListaMascotas(){
         mascotas = new ArrayList<Mascota>();
         mascotas.add(new Mascota("Laika", R.mipmap.weimaraner, 7));

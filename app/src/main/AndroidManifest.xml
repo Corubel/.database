@@ -36,6 +36,10 @@
             android:parentActivityName=".MainActivity">
 
         </activity>
+        <activity android:name=".DetalleMascota"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
     </application>
 
 </manifest>

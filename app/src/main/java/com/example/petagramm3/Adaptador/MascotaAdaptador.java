@@ -22,6 +22,26 @@ import java.util.ArrayList;
 public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder> {
     ArrayList<Mascota> mascotas;
     Activity activity;
+
+    public static class MascotaViewHolder extends RecyclerView.ViewHolder{
+        private static ImageView imgFotoGrid;
+        // private static TextView cvNombre;
+        private static TextView cvLikes;
+        // private static ImageButton btnWhiteBone;
+        private static ImageView imgYellowBone;
+
+
+        public MascotaViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imgFotoGrid =(ImageView) itemView.findViewById(R.id.gridFoto);
+            // cvNombre = (TextView) itemView.findViewById(R.id.cvNombre);
+            cvLikes = (TextView) itemView.findViewById(R.id.gridLikes);
+            // btnWhiteBone = (ImageButton) itemView.findViewById(R.id.btnWhiteBone);
+            imgYellowBone =(ImageView) itemView.findViewById(R.id.imgHuesoAmarillo);
+
+        }
+    }
+
     public MascotaAdaptador(ArrayList<Mascota> mascotas, Activity activity){
         this.mascotas = mascotas;
         this.activity = activity;
@@ -44,10 +64,10 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         Picasso.get()
                 .load(mascota.getUrlFoto())
                 .placeholder(R.mipmap.ic_dogs)
-                .into(MascotaViewHolder.imgFoto);
+                .into(MascotaViewHolder.imgFotoGrid);
 
         //MascotaViewHolder.cvNombre.setText(mascota.getNombre());
-        MascotaViewHolder.cvLikes.setText(String.valueOf(mascota.getLike()) + " Likes ");
+        MascotaViewHolder.cvLikes.setText(String.valueOf(mascota.getLike()));
 
         /*MascotaViewHolder.btnWhiteBone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +79,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
                 MascotaViewHolder.cvLikes.setText(String.valueOf(constructorMascotas.obtenerLikesMAscota(mascota)));
             }
         });*/
-        MascotaViewHolder.imgFoto.setOnClickListener(new View.OnClickListener() {
+        MascotaViewHolder.imgFotoGrid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(activity,  mascota.getNombre(), Toast.LENGTH_SHORT).show();
@@ -78,22 +98,5 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         return mascotas.size();
     }
 
-    public static class MascotaViewHolder extends RecyclerView.ViewHolder{
-        private static ImageView imgFoto;
-       // private static TextView cvNombre;
-        private static TextView cvLikes;
-       // private static ImageButton btnWhiteBone;
-        private static ImageView imgYellowBone;
 
-
-        public MascotaViewHolder(@NonNull View itemView) {
-            super(itemView);
-            imgFoto =(ImageView) itemView.findViewById(R.id.imgFotoGrid);
-           // cvNombre = (TextView) itemView.findViewById(R.id.cvNombre);
-            cvLikes = (TextView) itemView.findViewById(R.id.cvGridLikes);
-           // btnWhiteBone = (ImageButton) itemView.findViewById(R.id.btnWhiteBone);
-            imgYellowBone =(ImageView) itemView.findViewById(R.id.imgHuesoAmarillo);
-
-        }
-    }
 }

@@ -17,7 +17,7 @@
         >
 
         <ImageView
-            android:id="@+id/imgFoto"
+            android:id="@+id/gridFoto"
             android:layout_width="wrap_content"
             android:layout_height="130dp"
             android:src="@mipmap/weimaraner"
@@ -33,7 +33,7 @@
                 android:layout_gravity="center_horizontal">
 
                 <TextView
-                    android:id="@+id/cvLikes"
+                    android:id="@+id/gridLikes"
                     android:layout_width="25dp"
                     android:layout_height="wrap_content"
                     android:text="@string/raiting_perro"

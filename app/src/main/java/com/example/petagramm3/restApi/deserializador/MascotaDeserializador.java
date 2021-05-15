@@ -22,7 +22,7 @@ public class MascotaDeserializador implements JsonDeserializer<MascotaResponse> 
     public MascotaResponse deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         Gson gson = new Gson();
         MascotaResponse mascotaResponse = gson.fromJson(json, MascotaResponse.class);
-        JsonArray mascotaResponseData = json.getAsJsonObject().getAsJsonArray("data");
+        JsonArray mascotaResponseData = json.getAsJsonObject().getAsJsonArray(JsonKeys.MEDIA_RESPONSE_ARRAY);
 
         mascotaResponse.setMascotas(deserializarMascotaDejson(mascotaResponseData));
         return mascotaResponse;
@@ -33,17 +33,19 @@ public class MascotaDeserializador implements JsonDeserializer<MascotaResponse> 
         for (int i = 0; i < mascotaResponseData.size() ; i++) {
             JsonObject mascotaResponseDataObjetc = mascotaResponseData.get(i).getAsJsonObject();
 
-            JsonObject userJson = mascotaResponseDataObjetc.getAsJsonObject(JsonKeys.USERNAME);
-            String id           = userJson.get(JsonKeys.USER_ID).getAsString();
+            String userJson = mascotaResponseDataObjetc.get(JsonKeys.USERNAME).getAsString();
 
-            JsonObject imageJson = mascotaResponseDataObjetc.getAsJsonObject(JsonKeys.MEDIA_IMAGES);
+            String id           = mascotaResponseDataObjetc.get(JsonKeys.USER_ID).getAsString();
 
-            JsonObject likesJson = mascotaResponseDataObjetc.getAsJsonObject(JsonKeys.FOLLOW_COUNT);
+            String urlFoto = mascotaResponseDataObjetc.get(JsonKeys.MEDIA_URL).getAsString();
+
+           Integer likesJson = mascotaResponseDataObjetc.get(JsonKeys.LIKES).getAsInt();
 
             Mascota mascotaActual = new Mascota();
-            mascotaActual.getId();
-            mascotaActual.getUrlFoto();
-            mascotaActual.getLike();
+            mascotaActual.setId(id);
+            mascotaActual.setNombre(userJson);
+            mascotaActual.setUrlFoto(urlFoto);
+            mascotaActual.setLike(likesJson);
 
             mascotas.add(mascotaActual);
 

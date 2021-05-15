@@ -7,9 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.petagramm3.Adaptador.MascotaAdaptador;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.PicassoProvider;
 
 public class DetalleMascota extends AppCompatActivity {
     private static final String KEY_EXTRA_URL = "url";
