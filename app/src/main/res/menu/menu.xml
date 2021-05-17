@@ -6,9 +6,11 @@
                  android:title="@string/menu_contacto"
                  app:showAsAction="collapseActionView"
                  />
+
             <item android:id="@+id/mAcercaDe"
                 android:title="@string/menu_acerca_de"
                 app:showAsAction="collapseActionView"/>
+
             <item
             android:id="@+id/item_Favs"
             android:icon="@drawable/ic_star_rate_24"
@@ -17,10 +19,16 @@
             app:showAsAction="ifRoom"
             android:iconTint="@color/black"
             />
+
            <item
                android:id="@+id/mConfigurarCuenta"
                android:title="Configurar Cuenta"
                app:showAsAction="collapseActionView"/>
+
+           <item
+            android:id="@+id/mGetNotification"
+            android:title="Recibir notificaciones"
+            app:showAsAction="collapseActionView"/>
 
            
 </menu>

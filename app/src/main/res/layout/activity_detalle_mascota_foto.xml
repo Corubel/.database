@@ -14,6 +14,7 @@
         android:layout_height="380dp"
         android:backgroundTint="@color/pink"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
         >
 
         <LinearLayout
